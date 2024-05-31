@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.textHero {
+  display: inline-block;
+  margin-left:32%;
+}
+
+.container{
+  display: flex;
+  width: auto;
+}
+.card-InfoHero {
+  width: 50%;
+ 
+}
+
+.chart-Hero{
+  width: 20%;
+ 
+}
