@@ -5,7 +5,7 @@ $(document).ready(function () {
       let heroId = $("#heroId").val();
       if (validInput(heroId)) {
         $("#error-message").text("");
-        fetchHero(heroId);
+        hero(heroId);
       } else {
         $("#error-message").text("Por favor, ingrese un número válido entre 1 y 732");
       }
@@ -18,13 +18,13 @@ $(document).ready(function () {
   }
   
   // Consultar la API mediante AJAX , traer la informacion de la Api con get //
-  function fetchHero(heroId) {
+  function hero(heroId) {
     $.ajax({
       url: `https://superheroapi.com/api.php/3033707663582647/${heroId}`,
       method: "GET",
       success: function (data) {
-        HeroCard(data);
-        HeroChart(data);
+        heroCard(data);
+        heroChart(data);
       },
   //Implementar estructuras condicionales para generar alertas cuando existan errores en la búsqueda//
       error: function () {
@@ -33,7 +33,7 @@ $(document).ready(function () {
     });
   }
   // Renderizar la información en una card de Bootstrap.//
-  function HeroCard(hero) {
+  function heroCard(hero) {
     let heroCard = `
     <h5 class="card-title text-start text-success text-bold fs-3 gap-3 fw-bold mb-2">SuperHero encontrado</h5>
      <div class="card mb-3">
@@ -58,7 +58,7 @@ $(document).ready(function () {
     $("#heroInfo").html(heroCard);
   }
   //Utilizar la librería de gráficos CanvasJS//
-  function HeroChart(hero) {
+  function heroChart(hero) {
     let chart = new CanvasJS.Chart("chartContainer", {
       title: {
         text: `Estadísticas de poder ${hero.name}`,
